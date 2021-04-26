@@ -5,6 +5,8 @@ import MessageInputNotForm from './MessageInputNotForm'
 
 //Werid behaviour:
 //Using <Form> causes odd behaviour to the customSocketHook
+//This renders 3 inputs that calls the same sendMessage function,
+//but the one using a form doesn't work.
 
 const App: React.FC = () => {
   const [messages, sendMessage] = useSocket()
