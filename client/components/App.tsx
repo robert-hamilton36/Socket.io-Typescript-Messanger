@@ -1,8 +1,15 @@
 import React from 'react'
+import MessageInput from './MessageInput'
+import MessageRendering from './MessageRendering'
+import useSocket from './useSocket'
 
 const App: React.FC = () => {
+  const [messages, sendMessage] = useSocket()
   return (
-    <h1>App has arrived</h1>
+    <>
+      <MessageInput sendMessage={sendMessage} />
+      <MessageRendering messages={messages} />
+    </>
   )
 }
 
