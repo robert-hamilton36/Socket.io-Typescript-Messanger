@@ -11,16 +11,17 @@ const MessageInput: React.FC<Props> = (props) => {
     setNewMessage(e.target.value)
   }
 
-  const handleSubmit = () => {
-    props.sendMessage(newMessage)
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>, message:string) => {
+    event.preventDefault()
+    props.sendMessage(message)
     setNewMessage('')
   }
 
   return (
-    <>
+    <form onSubmit={(event) => handleSubmit(event, newMessage)}>
       <input value={newMessage} onChange={onChange} placeholder="Messsage" />
-      <button onClick={handleSubmit}>Send</button>
-    </>
+      <input type="submit" value="Send" />
+    </form>
   )
 }
 export default MessageInput
