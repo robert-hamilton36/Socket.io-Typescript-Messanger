@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { Server } = require('socket-io')
+const { Server } = require('socket.io')
 
 const ioServer = (server) => {
   const io = new Server(server)
