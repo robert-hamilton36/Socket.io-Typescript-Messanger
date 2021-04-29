@@ -29,7 +29,8 @@
     "setupFiles": [
       "./client/testing/setup/jsdom.js",
       "./client/testing/setup/enzyme.js"
-    ]
+    ],
+    "testPathIgnorePatterns":["client/testing/components/useSocket.test.js"]
   },
   "author": "Me",
   "license": "ISC",
