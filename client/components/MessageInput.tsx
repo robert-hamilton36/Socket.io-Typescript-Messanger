@@ -19,7 +19,7 @@ const MessageInput: React.FC<Props> = (props) => {
 
   return (
     <form onSubmit={(event) => handleSubmit(event, newMessage)}>
-      <input value={newMessage} onChange={onChange} placeholder="Messsage" />
+      <input id='message' value={newMessage} onChange={onChange} placeholder="Messsage" />
       <input type="submit" value="Send" />
     </form>
   )
