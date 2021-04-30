@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 
 interface Props{
-  sendMessage: (message: string) => void
+  sendMessage: (messageObject: MessageObject) => void,
+  name: string
+}
+
+interface MessageObject{
+  name:string,
+  message: string
 }
 
 const MessageInput: React.FC<Props> = (props) => {
@@ -13,7 +19,10 @@ const MessageInput: React.FC<Props> = (props) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>, message:string) => {
     event.preventDefault()
-    props.sendMessage(message)
+    props.sendMessage({
+      name: props.name,
+      message
+    })
     setNewMessage('')
   }
 
