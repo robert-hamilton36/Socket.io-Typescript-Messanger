@@ -1,15 +1,22 @@
-import React from 'react'
-import MessageInput from './MessageInput'
-import MessageRendering from './MessageRendering'
-import useSocket from './useSocket'
+import React, { useState } from 'react'
+import AskName from './AskName'
+import Room from './room/Room'
+import { UserContext } from './useUserContext'
 
 const App: React.FC = () => {
-  const [messages, sendMessage] = useSocket()
+  const [userObj, setUser] = useState({
+    name: '',
+    uid: ''
+  })
+  const [name, setName] = useState('')
+
   return (
-    <>
-      <MessageInput sendMessage={sendMessage} />
-      <MessageRendering messages={messages} />
-    </>
+    <UserContext.Provider value={{ userObj, setUser }}>
+      {name
+        ? <Room name={name}/>
+        : <AskName setMainName={setName} />
+      }
+    </ UserContext.Provider>
   )
 }
 
