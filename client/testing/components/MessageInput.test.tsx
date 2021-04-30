@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import MessageInput from '../../components/MessageInput'
+import MessageInput from '../../components/room/MessageInput'
 
 const sendMessage = (message: string) => {
   console.log(message)

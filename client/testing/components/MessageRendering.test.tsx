@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import MessageRendering from '../../components/MessageRendering'
+import MessageRendering from '../../components/room/MessageRendering'
 
 test('<MessageRendering> renders the correct amount of <li>\'s', () => {
   const spoofMessages = ['Hello There', 'General Kenobi']
