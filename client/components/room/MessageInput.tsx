@@ -3,7 +3,6 @@ import { UserContext } from '../useUserContext'
 
 interface Props{
   sendMessage: (messageObject: MessageObject) => void,
-  name: string
 }
 
 interface MessageObject{

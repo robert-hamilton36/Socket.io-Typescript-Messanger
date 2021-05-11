@@ -2,15 +2,20 @@ import { useEffect, useRef, useState } from 'react'
 import { io, Socket } from 'socket.io-client'
 import { DefaultEventsMap } from 'socket.io-client/build/typed-events'
 
+interface User{
+  name: string,
+  uid: number
+}
+
 interface MessageObject{
-  name:string,
+  userObj: User,
   message: string
 }
 
-const useSocket = (connection = ''):[string[], (messageObject: MessageObject) => void] => {
-  const [messages, setMessages] = useState<string[]>([])
+const useSocket = (connection = ''):[MessageObject[], (messageObject: MessageObject) => void] => {
+  const [messages, setMessages] = useState<MessageObject[]>([])
   const socket = useRef<Socket<DefaultEventsMap> | null>(null)
-
+  console.log(messages)
   useEffect(() => {
     socket.current = io(connection)
 
@@ -18,7 +23,7 @@ const useSocket = (connection = ''):[string[], (messageObject: MessageObject) =>
       console.log('connected')
     })
 
-    socket?.current.on('chat', (newMessage:string) => {
+    socket?.current.on('chat', (newMessage:MessageObject) => {
       setMessages((messages) => [...messages, newMessage])
     })
 

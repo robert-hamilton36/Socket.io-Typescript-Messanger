@@ -5,5 +5,5 @@ interface User{
   uid: number
 }
 
-export const UserContext = createContext<User | null>(null)
-// export const UserContext = createContext({ name: '', uid: 0 })
+// export const UserContext = createContext<User | null>(null)
+export const UserContext = createContext<User>({ name: '', uid: 0 })
