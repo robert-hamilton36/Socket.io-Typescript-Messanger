@@ -28,7 +28,7 @@ const useSocket = (connection = ''):[string[], (messageObject: MessageObject) =>
   }, [])
 
   const sendMessage = (messageObject: MessageObject) => {
-    console.log(messageObject)
+    // console.log(messageObject)
     socket?.current.emit('chat', messageObject)
   }
 

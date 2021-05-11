@@ -4,15 +4,21 @@ interface Props{
   messages: MessageObject[]
 }
 
+interface User{
+  name: string,
+  uid: number
+}
+
 interface MessageObject{
-  name:string,
+  userObj: User,
   message: string
 }
 
 const MessageRendering: React.FC<Props> = (props) => {
+  console.log(props.messages)
   return (
     <ul>
-      {props.messages.map((messageObj, inx) => <li key={messageObj.name + inx}><strong>{messageObj.name}</strong>: {messageObj.message}</li>)}
+      {props.messages.map((messageObj, inx) => <li key={messageObj.userObj.name + inx}><strong>{messageObj.userObj.name}</strong>: {messageObj.message}</li>)}
     </ul>
   )
 }

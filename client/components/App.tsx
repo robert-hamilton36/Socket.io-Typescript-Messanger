@@ -4,16 +4,22 @@ import Room from './room/Room'
 import { UserContext } from './useUserContext'
 
 const App: React.FC = () => {
-  const [userObj, setUser] = useState({
+  const [userObj, setUserObj] = useState({
     name: '',
-    uid: ''
+    uid: 0
   })
-  const [name, setName] = useState('')
+
+  const setName = (name:string) => {
+    setUserObj((previousState) => ({
+      ...previousState,
+      name: name
+    }))
+  }
 
   return (
-    <UserContext.Provider value={{ userObj, setUser }}>
-      {name
-        ? <Room name={name}/>
+    <UserContext.Provider value={userObj}>
+      {userObj.name
+        ? <Room />
         : <AskName setMainName={setName} />
       }
     </ UserContext.Provider>

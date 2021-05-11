@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 interface Props{
-  setMainName: React.Dispatch<React.SetStateAction<string>>,
+  setMainName: (name: string) => void
 }
 
 const AskName: React.FC<Props> = ({ setMainName }) => {
