@@ -15,7 +15,7 @@ interface MessageObject{
 const useSocket = (connection = ''):[MessageObject[], (messageObject: MessageObject) => void] => {
   const [messages, setMessages] = useState<MessageObject[]>([])
   const socket = useRef<Socket<DefaultEventsMap> | null>(null)
-  console.log(messages)
+
   useEffect(() => {
     socket.current = io(connection)
 

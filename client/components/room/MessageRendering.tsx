@@ -15,7 +15,6 @@ interface MessageObject{
 }
 
 const MessageRendering: React.FC<Props> = (props) => {
-  console.log(props.messages)
   return (
     <ul>
       {props.messages.map((messageObj, inx) => <li key={messageObj.userObj.name + inx}><strong>{messageObj.userObj.name}</strong>: {messageObj.message}</li>)}

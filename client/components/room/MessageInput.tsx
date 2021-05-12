@@ -23,8 +23,6 @@ const MessageInput: React.FC<Props> = (props) => {
     setNewMessage(e.target.value)
   }
 
-  console.log(userObj)
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>, message:string) => {
     event.preventDefault()
     props.sendMessage({
