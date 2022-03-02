@@ -12,7 +12,7 @@ interface MessageObject{
   message: string
 }
 
-const useSocket = (connection = ''):[MessageObject[], (messageObject: MessageObject) => void] => {
+const useSocket: (connection?: string) => (MessageObject[] | ((messageObject: MessageObject) => void))[] = (connection = '') => {
   const [messages, setMessages] = useState<MessageObject[]>([])
   const socket = useRef<Socket<DefaultEventsMap> | null>(null)
 
@@ -28,13 +28,13 @@ const useSocket = (connection = ''):[MessageObject[], (messageObject: MessageObj
     })
 
     return () => {
-      socket?.current.disconnect()
+      socket?.current?.disconnect()
     }
   }, [])
 
   const sendMessage = (messageObject: MessageObject) => {
     // console.log(messageObject)
-    socket?.current.emit('chat', messageObject)
+    socket?.current?.emit('chat', messageObject)
   }
 
   return [messages, sendMessage]

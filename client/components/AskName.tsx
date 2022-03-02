@@ -12,6 +12,7 @@ const AskName: React.FC<Props> = ({ setMainName }) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>, input: string) => {
     event.preventDefault()
     setMainName(input)
+    setName('')
   }
 
   return (
