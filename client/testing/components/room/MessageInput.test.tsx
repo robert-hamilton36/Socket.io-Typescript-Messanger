@@ -1,9 +1,21 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import MessageInput from '../../components/room/MessageInput'
 
-const sendMessage = (message: string) => {
-  console.log(message)
+import MessageInput from '../../../components/room/MessageInput'
+
+interface MessageObject{
+  userObj: User,
+  message: string
+}
+
+interface User{
+  name: string,
+  uid: number
+}
+
+const sendMessage = (messageObject: MessageObject) => {
+  // console.log(messageObject.message)
+  return messageObject.message
 }
 
 test('true is true', () => {
@@ -27,11 +39,11 @@ test('input onChangeEvent calls onChange function properly', () => {
   expect(inputValue.get(0).props.value).toBe('Hello there!')
 })
 
-test('submit submits the right info', () => {
+test('submit button submits the right info', () => {
   let value = ''
 
-  const changeValue = (message: string) => {
-    value = message
+  const changeValue = (messageObject: MessageObject) => {
+    value = messageObject.message
   }
   // mount for event.preventDefault()
   const wrapper = mount(<MessageInput sendMessage={changeValue} />)

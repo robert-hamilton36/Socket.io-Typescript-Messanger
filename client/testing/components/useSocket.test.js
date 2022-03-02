@@ -5,7 +5,7 @@ import Client from 'socket.io-client'
 import { hookSetup } from '../setup/HookSetup'
 import useSocket from '../../components/useSocket'
 
-describe('my awesome project', () => {
+describe('my awesome test works just perfectly', () => {
   let io, serverSocket, clientSocket
   let messages, sendMessage
 
